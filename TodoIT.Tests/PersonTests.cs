@@ -16,8 +16,6 @@ namespace TodoIT.Tests
             int befopreId = Person.IdCounter;
             Person testPerson = new Person(firstname, lastname);
             
-            Assert.Equal(testPerson.Firstname, firstname);
-            Assert.Equal(testPerson.Lastname, lastname);
             Assert.True(Person.IdCounter > befopreId);
         }
 
@@ -36,6 +34,17 @@ namespace TodoIT.Tests
 
             Assert.Throws<ArgumentException>(() => testPerson1 = new Person("", "Larsson"));
             Assert.Throws<ArgumentException>(() => testPerson1 = new Person(null, "Larsson"));
+        }
+
+        [Fact]
+        public void ConstructorAssignment()
+        {
+            string firstname = "Magnus";
+            string lastname = "Larsson";           
+            Person testPerson = new Person(firstname, lastname);
+
+            Assert.Equal(testPerson.Firstname, firstname);
+            Assert.Equal(testPerson.Lastname, lastname);
         }
     }
 }
