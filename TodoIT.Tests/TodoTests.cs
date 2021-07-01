@@ -13,7 +13,7 @@ namespace TodoIT.Tests
         {
             Todo todo = new Todo(5, "test");
 
-            Assert.Equal(5, todo.TodoIT);
+            Assert.Equal(5, todo.TodoId);
             Assert.Equal("test", todo.Description);
         } 
     }

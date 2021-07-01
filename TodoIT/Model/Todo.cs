@@ -6,19 +6,19 @@ namespace TodoIT.Model
 {
     public class Todo
     {
-        private readonly int todoIt;
+        private readonly int todoId;
         private String description;
         private bool done;
         private Person assignee;
 
-        public Todo(int todoIt, String description)
+        public Todo(int todoId, String description)
         {
-            this.todoIt = todoIt;
+            this.todoId = todoId;
             this.description = description;
         }
 
-        public int TodoIT {
-            get { return todoIt; }
+        public int TodoId {
+            get { return todoId; }
         }
 
         public String Description
