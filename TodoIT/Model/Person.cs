@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using TodoIT.Data;
 namespace TodoIT.Model
 {
     public class Person
@@ -13,7 +13,8 @@ namespace TodoIT.Model
 
         public Person(string firstname, string lastname)
         {
-            personId = ++idCounter;
+            //jag tolkar 8e som att jag skall göra så här.
+            personId = PersonSequencer.nextPersonId(); 
             Firstname = firstname;
             Lastname = lastname;
         }

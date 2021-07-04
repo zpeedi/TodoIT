@@ -13,10 +13,10 @@ namespace TodoIT.Tests
         {
             string firstname = "Magnus";
             string lastname = "Larsson";
-            int befopreId = Person.IdCounter;
+            int beforeId = Person.IdCounter;
             Person testPerson = new Person(firstname, lastname);
             
-            Assert.True(Person.IdCounter > befopreId);
+            Assert.True(Person.IdCounter > beforeId);
         }
 
         [Fact]
