@@ -45,5 +45,80 @@ namespace TodoIT.Data
         {
             Array.Clear(todoArray, 0, todoArray.Length);
         }
+
+        public static Todo[] FindByDoneStatus(bool doneStatus)
+        {
+            int dones = 0;
+            foreach(Todo t in todoArray)
+            {
+                if (t.Done == doneStatus)
+                {
+                    dones++;
+                }
+            }
+
+            Todo[] doneArray = new Todo[dones];
+
+            foreach (Todo t in todoArray)
+            {
+                if (t.Done == doneStatus)
+                {                    
+                    doneArray[doneArray.Length - dones--] = t;
+                }
+            }
+            return doneArray;
+        }
+
+        public static Todo[] FindByAssignee(int personId)
+        {
+            int todos = 0;
+            foreach (Todo t in todoArray)
+            {
+                if (t.Assignee.PersonId == personId)
+                {
+                    todos++;
+                }
+            }
+
+            Todo[] tmpArray = new Todo[todos];
+
+            foreach (Todo t in todoArray)
+            {
+                if (t.Assignee.PersonId == personId)
+                {
+                    tmpArray[tmpArray.Length - todos--] = t;
+                }
+            }
+            return tmpArray;
+        }
+
+        public static Todo[] FindByAssignee(Person p)
+        {
+            return FindByAssignee(p.PersonId);
+        }
+
+        public static Todo[] FindUnassignedTodoItems()
+        {
+            int unassigned = 0;
+            foreach (Todo t in todoArray)
+            {
+                if (t.Assignee == null)
+                {
+                    unassigned++;
+                }
+            }
+
+            Todo[] tmpArray = new Todo[unassigned];
+
+            foreach (Todo t in todoArray)
+            {
+                if (t.Assignee == null)
+                {
+                    tmpArray[tmpArray.Length - unassigned--] = t;
+                }
+            }
+            return tmpArray;
+        }
+
     }
 }

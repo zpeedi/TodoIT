@@ -25,5 +25,17 @@ namespace TodoIT.Model
         {
             get { return description; }
         }
+
+        public bool Done
+        {
+            get { return done; }
+            set { done = value; }
+        }
+
+        public Person Assignee
+        {
+            get { return assignee; }
+            set { assignee = value; }
+        }
     }
 }
