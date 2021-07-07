@@ -127,5 +127,26 @@ namespace TodoIT.Data
             return tmpArray;
         }
 
+        public static void Remove(int id)
+        {
+            Todo[] oldTodoArray = todoArray;
+            todoArray = new Todo[Size()-1];
+            int dummy = 0; 
+
+            for(int i=0;i<oldTodoArray.Length; i++) 
+            {
+                if (oldTodoArray[i].TodoId == id)
+                {
+                    dummy = -1;
+                    break;
+                }
+                else
+                
+                {
+                    todoArray[i + dummy] = oldTodoArray[i + dummy];
+                }
+            }
+        }
+
     }
 }

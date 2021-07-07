@@ -42,6 +42,26 @@ namespace TodoIT.Tests
 
 
         }
+        [Fact]
+        public void RemoveTest()
+        {
+            int idToRemove;
+            int sizeBefore;
+
+            Person p1 = People.NewPerson("Kalle", "Fredriksson");
+            Person p2 = People.NewPerson("Olle", "Karlsson");
+            Person p3 = People.NewPerson("Bengt", "Larsson");
+            Person p4 = People.NewPerson("Sven", "Persson");
+         
+            idToRemove = p2.PersonId;
+            sizeBefore = People.Size();
+
+            People.Remove(idToRemove);
+
+            Assert.Equal(sizeBefore, People.Size() + 1);
+            Assert.Null(People.FindById(idToRemove));
+
+        }
     }
 
     

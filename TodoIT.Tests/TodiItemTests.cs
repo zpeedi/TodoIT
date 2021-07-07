@@ -114,5 +114,25 @@ namespace TodoIT.Tests
 
             TodoItems.Clear();
         }
+
+        [Fact]
+        public void RemoveTest()
+        {
+            int idToRemove;
+            int sizeBefore;
+
+            Todo t1 = TodoItems.NewTodo("Gul");
+            Todo t2 = TodoItems.NewTodo("Grön");
+            Todo t3 = TodoItems.NewTodo("Blå");
+            Todo t4 = TodoItems.NewTodo("Röd");
+            idToRemove = t2.TodoId;
+            sizeBefore = TodoItems.Size();
+
+            TodoItems.Remove(idToRemove);
+
+            Assert.Equal(sizeBefore, TodoItems.Size()+1);
+            Assert.Null(TodoItems.FindById(idToRemove));
+
+        }
     }
 }

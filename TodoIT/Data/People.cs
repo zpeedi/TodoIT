@@ -45,6 +45,25 @@ namespace TodoIT.Data
         {
             Array.Clear(personArray, 0, personArray.Length);
         }
+        public static void Remove(int id)
+        {
+            Person[] oldPersonArray = personArray;
+            personArray = new Person[Size() - 1];
+            int dummy = 0;
 
+            for (int i = 0; i < oldPersonArray.Length; i++)
+            {
+                if (oldPersonArray[i].PersonId == id)
+                {
+                    dummy = -1;
+                    break;
+                }
+                else
+
+                {
+                    personArray[i + dummy] = oldPersonArray[i + dummy];
+                }
+            }
+        }
     }
 }
