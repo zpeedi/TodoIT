@@ -13,10 +13,18 @@ namespace TodoIT.Model
 
         public Person(string firstname, string lastname)
         {
-            //jag tolkar 8e som att jag skall göra så här.
-            personId = PersonSequencer.nextPersonId(); 
+            //Jag tolkar 8e som att jag skall göra så här.
+            //Det här var mest intressanta i hela uppgiften för mitt 
+            //test small när jag öndrade detta i 8e. 
+            personId = PersonSequencer.nextPersonId();
+            idCounter++;
+
+            //this.firstname = firstname;
+            //this.lastname = lastname;
+            
             Firstname = firstname;
             Lastname = lastname;
+         
         }
 
         public int PersonId

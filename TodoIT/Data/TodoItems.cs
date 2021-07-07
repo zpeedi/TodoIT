@@ -43,7 +43,8 @@ namespace TodoIT.Data
 
         public static void Clear()
         {
-            Array.Clear(todoArray, 0, todoArray.Length);
+            todoArray = new Todo[0];
+            //Array.Clear(todoArray, 0, todoArray.Length);
         }
 
         public static Todo[] FindByDoneStatus(bool doneStatus)
@@ -71,12 +72,15 @@ namespace TodoIT.Data
 
         public static Todo[] FindByAssignee(int personId)
         {
+            
             int todos = 0;
             foreach (Todo t in todoArray)
             {
-                if (t.Assignee.PersonId == personId)
-                {
-                    todos++;
+                if (t.Assignee != null){
+                    if (t.Assignee.PersonId == personId)
+                    {
+                        todos++;
+                    }
                 }
             }
 
@@ -84,9 +88,12 @@ namespace TodoIT.Data
 
             foreach (Todo t in todoArray)
             {
-                if (t.Assignee.PersonId == personId)
+                if (t.Assignee != null)
                 {
-                    tmpArray[tmpArray.Length - todos--] = t;
+                    if (t.Assignee.PersonId == personId)
+                    {
+                        tmpArray[tmpArray.Length - todos--] = t;
+                    }
                 }
             }
             return tmpArray;
